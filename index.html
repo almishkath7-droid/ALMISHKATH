@@ -573,8 +573,6 @@ footer{
         padding:70px 6%;
     }
 
-    /* 2 columns on mobile too */
-
     .photo-grid{
         grid-template-columns:1fr 1fr;
         gap:10px;
@@ -597,8 +595,6 @@ footer{
         font-size:10px;
     }
 
-    /* Main union */
-
     .union-grid{
         grid-template-columns:1fr 1fr;
         gap:12px;
@@ -616,8 +612,6 @@ footer{
     .card p{
         font-size:9px;
     }
-
-    /* Wings */
 
     .wings-grid{
         grid-template-columns:1fr 1fr;
@@ -647,8 +641,6 @@ footer{
     .wing-info p{
         font-size:8px;
     }
-
-    /* Event slider */
 
     .event-slider{
         height:430px;
@@ -685,7 +677,6 @@ footer{
 
 </style>
 </head>
-
 
 <body>
 
@@ -821,6 +812,7 @@ AL <span>MISHKATH</span>
 
 <div class="photo-grid">
 
+
 <div class="photo-box">
 
 <img src="event-01.jpg">
@@ -879,6 +871,7 @@ AL <span>MISHKATH</span>
 </div>
 
 </div>
+
 
 </div>
 
@@ -1010,8 +1003,6 @@ THIS IS OUR BATCH • THIS IS OUR JOURNEY • THIS IS AL MISHKATH ✨
 <div class="wings-grid">
 
 
-<!-- LANGUAGE CHAIRMAN -->
-
 <div class="wing-card">
 
 <img src="language-chairman.jpg">
@@ -1020,14 +1011,15 @@ THIS IS OUR BATCH • THIS IS OUR JOURNEY • THIS IS AL MISHKATH ✨
 
 <h3>Muhammed Rafi C</h3>
 
-<p>Language Wing<br>Chairman</p>
+<p>
+Language Wing<br>
+Chairman
+</p>
 
 </div>
 
 </div>
 
-
-<!-- LANGUAGE CONVENER -->
 
 <div class="wing-card">
 
@@ -1037,14 +1029,15 @@ THIS IS OUR BATCH • THIS IS OUR JOURNEY • THIS IS AL MISHKATH ✨
 
 <h3>Muhammed Razin</h3>
 
-<p>Language Wing<br>Convener</p>
+<p>
+Language Wing<br>
+Convener
+</p>
 
 </div>
 
 </div>
 
-
-<!-- CLASS LEADER 1 -->
 
 <div class="wing-card">
 
@@ -1061,8 +1054,6 @@ THIS IS OUR BATCH • THIS IS OUR JOURNEY • THIS IS AL MISHKATH ✨
 </div>
 
 
-<!-- CLASS LEADER 2 -->
-
 <div class="wing-card">
 
 <img src="class-leader-2.jpg">
@@ -1077,8 +1068,6 @@ THIS IS OUR BATCH • THIS IS OUR JOURNEY • THIS IS AL MISHKATH ✨
 
 </div>
 
-
-<!-- ROOM LEADER -->
 
 <div class="wing-card">
 
@@ -1095,8 +1084,6 @@ THIS IS OUR BATCH • THIS IS OUR JOURNEY • THIS IS AL MISHKATH ✨
 </div>
 
 
-<!-- SAMAJAM CHAIRMAN -->
-
 <div class="wing-card">
 
 <img src="samajam-chairman.jpg">
@@ -1105,14 +1092,15 @@ THIS IS OUR BATCH • THIS IS OUR JOURNEY • THIS IS AL MISHKATH ✨
 
 <h3>Muhammed Sinan TK</h3>
 
-<p>Samajam Wing<br>Chairman</p>
+<p>
+Samajam Wing<br>
+Chairman
+</p>
 
 </div>
 
 </div>
 
-
-<!-- SAMAJAM CONVENER -->
 
 <div class="wing-card">
 
@@ -1122,14 +1110,15 @@ THIS IS OUR BATCH • THIS IS OUR JOURNEY • THIS IS AL MISHKATH ✨
 
 <h3>Muhammed Hidash</h3>
 
-<p>Samajam Wing<br>Convener</p>
+<p>
+Samajam Wing<br>
+Convener
+</p>
 
 </div>
 
 </div>
 
-
-<!-- HEALTH -->
 
 <div class="wing-card">
 
@@ -1146,8 +1135,6 @@ THIS IS OUR BATCH • THIS IS OUR JOURNEY • THIS IS AL MISHKATH ✨
 </div>
 
 
-<!-- LIBRARY CHAIRMAN -->
-
 <div class="wing-card">
 
 <img src="library-chairman.jpg">
@@ -1156,14 +1143,15 @@ THIS IS OUR BATCH • THIS IS OUR JOURNEY • THIS IS AL MISHKATH ✨
 
 <h3>Nashim Sha</h3>
 
-<p>Library Wing<br>Chairman</p>
+<p>
+Library Wing<br>
+Chairman
+</p>
 
 </div>
 
 </div>
 
-
-<!-- LIBRARY CONVENER -->
 
 <div class="wing-card">
 
@@ -1173,7 +1161,10 @@ THIS IS OUR BATCH • THIS IS OUR JOURNEY • THIS IS AL MISHKATH ✨
 
 <h3>Muhammed Ziyad</h3>
 
-<p>Library Wing<br>Convener</p>
+<p>
+Library Wing<br>
+Convener
+</p>
 
 </div>
 
@@ -1185,7 +1176,7 @@ THIS IS OUR BATCH • THIS IS OUR JOURNEY • THIS IS AL MISHKATH ✨
 </section>
 
 
-<!-- ================= SPECIAL EVENTS BIG SLIDER ================= -->
+<!-- ================= SPECIAL EVENTS ================= -->
 
 <section id="events">
 
@@ -1367,11 +1358,11 @@ Built with memories, friendship & unity ✨
 </footer>
 
 
-<!-- ================= JAVASCRIPT ================= -->
+<!-- ================= SLIDER JAVASCRIPT ================= -->
 
 <script>
 
-/* MAIN HERO SLIDER */
+/* ================= MAIN HEADER SLIDER ================= */
 
 const heroSlides =
 document.querySelectorAll(".hero-slide");
@@ -1384,30 +1375,33 @@ let heroCurrent = 0;
 
 function showHero(index){
 
-    heroSlides.forEach(slide =>
-        slide.classList.remove("active")
-    );
+    heroSlides.forEach((slide,i)=>{
 
-    heroDots.forEach(dot =>
-        dot.classList.remove("active")
-    );
+        slide.classList.toggle(
+            "active",
+            i === index
+        );
 
-    heroSlides[index].classList.add("active");
+    });
 
-    heroDots[index].classList.add("active");
+
+    heroDots.forEach((dot,i)=>{
+
+        dot.classList.toggle(
+            "active",
+            i === index
+        );
+
+    });
 
 }
 
 
 function nextHero(){
 
-    heroCurrent++;
-
-    if(heroCurrent >= heroSlides.length){
-
-        heroCurrent = 0;
-
-    }
+    heroCurrent =
+        (heroCurrent + 1) %
+        heroSlides.length;
 
     showHero(heroCurrent);
 
@@ -1427,10 +1421,12 @@ heroDots.forEach((dot,index)=>{
 });
 
 
-setInterval(nextHero,5000);
+/* MAIN SLIDER = 2 SECONDS */
+
+setInterval(nextHero,2000);
 
 
-/* EVENTS SLIDER */
+/* ================= EVENTS SLIDER ================= */
 
 const eventSlides =
 document.querySelectorAll(".event-slide");
@@ -1443,30 +1439,33 @@ let eventCurrent = 0;
 
 function showEvent(index){
 
-    eventSlides.forEach(slide =>
-        slide.classList.remove("active")
-    );
+    eventSlides.forEach((slide,i)=>{
 
-    eventDots.forEach(dot =>
-        dot.classList.remove("active")
-    );
+        slide.classList.toggle(
+            "active",
+            i === index
+        );
 
-    eventSlides[index].classList.add("active");
+    });
 
-    eventDots[index].classList.add("active");
+
+    eventDots.forEach((dot,i)=>{
+
+        dot.classList.toggle(
+            "active",
+            i === index
+        );
+
+    });
 
 }
 
 
 function nextEvent(){
 
-    eventCurrent++;
-
-    if(eventCurrent >= eventSlides.length){
-
-        eventCurrent = 0;
-
-    }
+    eventCurrent =
+        (eventCurrent + 1) %
+        eventSlides.length;
 
     showEvent(eventCurrent);
 
@@ -1475,5 +1474,35 @@ function nextEvent(){
 
 eventDots.forEach((dot,index)=>{
 
-    dot.addEventListener("click
+    dot.addEventListener("click",()=>{
+
+        eventCurrent = index;
+
+        showEvent(eventCurrent);
+
+    });
+
+});
+
+
+/* EVENTS SLIDER = 2 SECONDS */
+
+setInterval(nextEvent,2000);
+
+
+/* INITIALIZE */
+
+showHero(0);
+
+showEvent(0);
+
+</script>
+
+
+</body>
+    </html>
+
+    
+
+
 
