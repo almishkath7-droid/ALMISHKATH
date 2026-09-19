@@ -1485,13 +1485,136 @@ function nextHero(){
 }
 
 
-heroDots.forEach((dot
+heroDots.forEach((dot,index)=>{
+
+    dot.addEventListener("click",()=>{
+
+        heroCurrent = index;
+
+        showHero(heroCurrent);
+
+    });
+
+});
 
 
+/* MAIN SLIDER = 2 SECONDS */
+
+setInterval(nextHero,2000);
 
 
+/* ================= EVENTS SLIDER ================= */
 
-    
+const eventSlides =
+document.querySelectorAll(".event-slide");
+
+const eventDots =
+document.querySelectorAll(".event-dot");
+
+let eventCurrent = 0;
 
 
+function showEvent(index){
+
+    eventSlides.forEach((slide,i)=>{
+
+        slide.classList.toggle(
+            "active",
+            i === index
+        );
+
+    });
+
+
+    eventDots.forEach((dot,i)=>{
+
+        dot.classList.toggle(
+            "active",
+            i === index
+        );
+
+    });
+
+}
+
+
+function nextEvent(){
+
+    eventCurrent =
+        (eventCurrent + 1) %
+        eventSlides.length;
+
+    showEvent(eventCurrent);
+
+}
+
+
+eventDots.forEach((dot,index)=>{
+
+    dot.addEventListener("click",()=>{
+
+        eventCurrent = index;
+
+        showEvent(eventCurrent);
+
+    });
+
+});
+
+
+/* EVENTS SLIDER = 2 SECONDS */
+
+setInterval(nextEvent,2000);
+
+
+/* INITIALIZE */
+
+showHero(0);
+
+showEvent(0);
+
+
+/* ================= OPENING SCROLL REMINDER ================= */
+
+setTimeout(() => {
+
+    const reminder =
+        document.getElementById("scrollReminder");
+
+    /* SCROLL DOWN A LITTLE */
+
+    window.scrollTo({
+
+        top:180,
+
+        behavior:"smooth"
+
+    });
+
+
+    /* SHOW SMALL MESSAGE */
+
+    setTimeout(() => {
+
+        reminder.classList.add("show");
+
+    },500);
+
+
+    /* HIDE MESSAGE AFTER A FEW SECONDS */
+
+    setTimeout(() => {
+
+        reminder.classList.remove("show");
+
+    },3500);
+
+
+},2500);
+
+</script>
+
+
+</body>
+</html>
 
