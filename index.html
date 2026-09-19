@@ -543,6 +543,72 @@ footer{
     font-size:12px;
 }
 
+/* ================= SCROLL REMINDER ================= */
+
+.scroll-reminder{
+    position:fixed;
+    left:50%;
+    bottom:25px;
+
+    transform:
+        translateX(-50%)
+        translateY(20px);
+
+    z-index:2000;
+
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    padding:11px 18px;
+
+    background:rgba(8,8,15,.92);
+
+    border:1px solid rgba(255,255,255,.12);
+
+    border-radius:50px;
+
+    box-shadow:0 10px 30px rgba(0,0,0,.35);
+
+    font-size:13px;
+    letter-spacing:.3px;
+
+    opacity:0;
+    pointer-events:none;
+
+    transition:
+        opacity .5s ease,
+        transform .5s ease;
+}
+
+.scroll-reminder.show{
+    opacity:1;
+
+    transform:
+        translateX(-50%)
+        translateY(0);
+}
+
+.scroll-reminder b{
+    color:#ff66d8;
+    font-size:18px;
+
+    animation:
+        reminderArrow 1s ease-in-out infinite;
+}
+
+@keyframes reminderArrow{
+
+    0%,100%{
+        transform:translateY(0);
+    }
+
+    50%{
+        transform:translateY(5px);
+    }
+
+}
+
 /* ================= MOBILE ================= */
 
 @media(max-width:900px){
@@ -895,7 +961,7 @@ AL <span>MISHKATH</span>
 
 <p>
 
-“The 11th Batch of DARUL HIDAYA is more than just a group of students; it is a collection of dreams, friendships, experiences, and unforgettable moments. From learning together to celebrating together, every day adds another page to our story. With unity in our hearts and dreams in our eyes, we continue this journey — supporting one another, discovering our talents, and creating memories that will remain with us long after our classroom days are over.”
+“The 11th Batch of AL MISHKATH is more than just a group of students; it is a collection of dreams, friendships, experiences, and unforgettable moments. From learning together to celebrating together, every day adds another page to our story. With unity in our hearts and dreams in our eyes, we continue this journey — supporting one another, discovering our talents, and creating memories that will remain with us long after our classroom days are over.”
 
 </p>
 
@@ -1141,7 +1207,7 @@ Convener
 
 <div class="wing-info">
 
-<h3>Nadhim Sha</h3>
+<h3>Nashim Sha</h3>
 
 <p>
 Library Wing<br>
@@ -1358,6 +1424,17 @@ Built with memories, friendship & unity ✨
 </footer>
 
 
+<!-- ================= SCROLL REMINDER ================= -->
+
+<div id="scrollReminder" class="scroll-reminder">
+
+<span>There’s more to explore</span>
+
+<b>↓</b>
+
+</div>
+
+
 <!-- ================= SLIDER JAVASCRIPT ================= -->
 
 <script>
@@ -1408,99 +1485,11 @@ function nextHero(){
 }
 
 
-heroDots.forEach((dot,index)=>{
-
-    dot.addEventListener("click",()=>{
-
-        heroCurrent = index;
-
-        showHero(heroCurrent);
-
-    });
-
-});
+heroDots.forEach((dot
 
 
-/* MAIN SLIDER = 2 SECONDS */
-
-setInterval(nextHero,2000);
 
 
-/* ================= EVENTS SLIDER ================= */
-
-const eventSlides =
-document.querySelectorAll(".event-slide");
-
-const eventDots =
-document.querySelectorAll(".event-dot");
-
-let eventCurrent = 0;
-
-
-function showEvent(index){
-
-    eventSlides.forEach((slide,i)=>{
-
-        slide.classList.toggle(
-            "active",
-            i === index
-        );
-
-    });
-
-
-    eventDots.forEach((dot,i)=>{
-
-        dot.classList.toggle(
-            "active",
-            i === index
-        );
-
-    });
-
-}
-
-
-function nextEvent(){
-
-    eventCurrent =
-        (eventCurrent + 1) %
-        eventSlides.length;
-
-    showEvent(eventCurrent);
-
-}
-
-
-eventDots.forEach((dot,index)=>{
-
-    dot.addEventListener("click",()=>{
-
-        eventCurrent = index;
-
-        showEvent(eventCurrent);
-
-    });
-
-});
-
-
-/* EVENTS SLIDER = 2 SECONDS */
-
-setInterval(nextEvent,2000);
-
-
-/* INITIALIZE */
-
-showHero(0);
-
-showEvent(0);
-
-</script>
-
-
-</body>
-    </html>
 
     
 
